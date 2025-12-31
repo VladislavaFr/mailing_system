@@ -1,0 +1,11 @@
+{% extends 'mail_messages/base.html' %}
+{% block title %}Удаление получателя{% endblock %}
+{% block content %}
+{% include 'mail_messages/header.html' %}
+<h3>Вы уверены, что хотите удалить получателя "{{ object }}"?</h3>
+<form method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger" type="submit">Удалить</button>
+    <a class="btn btn-secondary" href="{% url 'mail_recipients:list_mail_recipient' %}">Отмена</a>
+</form>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'mail_messages/base.html' %}
+{% block title %}Список рассылок{% endblock %}
+{% block content %}
+{% include 'mail_messages/header.html' %}
+<h1>Список рассылок</h1>
+<a class="btn btn-primary" href="{% url 'mail_messages:create_mailing' %}">Создать рассылку</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Название</th>
+      <th>Статус</th>
+      <th>Действия</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for obj in objects_list %}
+    <tr>
+      <td>{{ obj.id }}</td>
+      <td>{{ obj.name }}</td>
+      <td>{{ obj.status }}</td>
+      <td>
+        <a href="{% url 'mail_messages:detail_mailing' obj.id %}" class="btn btn-info">Просмотр</a>
+        <a href="{% url 'mail_messages:update_mailing' obj.id %}" class="btn btn-warning">Редактировать</a>
+        <a href="{% url 'mail_messages:delete_mailing' obj.id %}" class="btn btn-danger">Удалить</a>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

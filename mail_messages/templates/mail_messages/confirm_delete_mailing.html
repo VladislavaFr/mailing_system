@@ -1,0 +1,12 @@
+{% extends 'mail_messages/base.html' %}
+{% block title %}Удаление рассылки{% endblock %}
+{% block content %}
+{% include 'mail_messages/header.html' %}
+<h1>Удалить рассылку?</h1>
+<p>Вы уверены, что хотите удалить рассылку "{{ object.name }}"?</p>
+<form method="post">
+  {% csrf_token %}
+  <button class="btn btn-danger" type="submit">Удалить</button>
+  <a class="btn btn-secondary" href="{% url 'mail_messages:list_mailing' %}">Отмена</a>
+</form>
+{% endblock %}

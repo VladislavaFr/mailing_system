@@ -1,0 +1,9 @@
+{% extends 'mail_messages/base.html' %}
+{% block title %}Детали получателя{% endblock %}
+{% block content %}
+{% include 'mail_messages/header.html' %}
+<p>ФИО: {{ object.full_name }}</p>
+<p>Email: {{ object.email }}</p>
+<p>Телефон: {{ object.phone_number }}</p>
+<a class="btn btn-primary" href="{% url 'mail_recipients:list_mail_recipient' %}">Назад</a>
+{% endblock %}
