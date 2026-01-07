@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "mailing"
+version = "0.1.0"
+description = ""
+authors = ["VladislavaFr <vladislava.fridmann1@aol.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.2.7"
+psycopg2 = "^2.9.11"
+python-dotenv = "^1.1.1"
+celery = "^5.5.3"
+redis = "^6.4.0"
+
+
+[tool.poetry.group.lint.dependencies]
+flake8 = "^7.3.0"
+mypy = "^1.18.2"
+black = "^25.9.0"
+isort = "^7.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
